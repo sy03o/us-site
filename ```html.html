@@ -1,0 +1,3234 @@
+html
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Міяшечка вкусняшечка ♡</title>
+
+<style>
+
+/* =====================================================
+   ОСНОВА
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+
+    cursor: default;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            #ffb6dc 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            #d6b4ff 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 50% 80%,
+            #ff9fcf 0%,
+            transparent 28%
+        ),
+
+        linear-gradient(
+            135deg,
+            #160b20,
+            #29112f,
+            #35152e,
+            #1d0d25
+        );
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   РОЖЕВІ БЛОБИ
+===================================================== */
+
+.background-blur {
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+    z-index: -10;
+
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: .35;
+
+    animation:
+        blobMove 15s ease-in-out infinite;
+}
+
+.blob1 {
+    width: 350px;
+    height: 350px;
+
+    background: #ff72b6;
+
+    top: 10%;
+    left: -100px;
+}
+
+.blob2 {
+    width: 300px;
+    height: 300px;
+
+    background: #9b7cff;
+
+    right: -80px;
+    top: 40%;
+
+    animation-delay: -5s;
+}
+
+.blob3 {
+    width: 400px;
+    height: 400px;
+
+    background: #ff8ecb;
+
+    left: 30%;
+    bottom: -200px;
+
+    animation-delay: -9s;
+}
+
+@keyframes blobMove {
+
+    0%,100% {
+        transform:
+            translate(0,0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(70px,-50px)
+            scale(1.15);
+    }
+}
+
+
+/* =====================================================
+   СЛІД ЗА КУРСОРОМ
+===================================================== */
+
+.cursor-heart {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 999999;
+
+    font-size: 14px;
+
+    color: #ff9fd0;
+
+    text-shadow:
+        0 0 10px #ff7fbe,
+        0 0 20px rgba(255,130,195,.5);
+
+    animation:
+        cursorFade .8s ease-out forwards;
+}
+
+@keyframes cursorFade {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.6)
+            rotate(0deg);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                calc(-50% + var(--x)),
+                calc(-50% + var(--y))
+            )
+            scale(1.4)
+            rotate(var(--rotate));
+    }
+}
+
+
+/* =====================================================
+   ЛЕТЮЧІ СЕРДЕЧКА
+===================================================== */
+
+.floating {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.float-item {
+    position: absolute;
+
+    opacity: .35;
+
+    animation:
+        floatAround
+        linear infinite;
+}
+
+@keyframes floatAround {
+
+    0% {
+        transform:
+            translateY(110vh)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .5;
+    }
+
+    85% {
+        opacity: .5;
+    }
+
+    100% {
+        transform:
+            translateY(-120px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   ПРОГРЕС
+===================================================== */
+
+.progress {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 4px;
+
+    z-index: 99999;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff77b7,
+            #d6a0ff,
+            #ff8bc8
+        );
+
+    box-shadow:
+        0 0 15px #ff7abd;
+}
+
+
+/* =====================================================
+   СЕКЦІЇ
+===================================================== */
+
+section {
+    min-height: 100vh;
+
+    padding:
+        100px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.container {
+    width: min(1100px, 100%);
+
+    margin: auto;
+}
+
+.small-title {
+    text-align: center;
+
+    color: #ffabd6;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+}
+
+h2 {
+    text-align: center;
+
+    font-size:
+        clamp(38px, 7vw, 75px);
+
+    line-height: 1.05;
+
+    margin-bottom: 25px;
+}
+
+.description {
+    max-width: 650px;
+
+    margin:
+        0 auto 50px;
+
+    text-align: center;
+
+    color: #e2cfe0;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+#home {
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   МІСЯЦЬ
+===================================================== */
+
+.moon {
+    position: relative;
+
+    width: 210px;
+    height: 210px;
+
+    margin:
+        0 auto 55px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 27%,
+            #fff6ff 0%,
+            #f5dff1 30%,
+            #d8bfd8 65%,
+            #a889aa 100%
+        );
+
+    box-shadow:
+        0 0 35px rgba(255,206,236,.9),
+        0 0 100px rgba(255,122,191,.45);
+
+    animation:
+        moonFloat 4s ease-in-out infinite;
+}
+
+.crater {
+    position: absolute;
+
+    border-radius: 50%;
+
+    background:
+        rgba(122,93,120,.22);
+
+    box-shadow:
+        inset 5px 5px 8px
+        rgba(90,60,90,.15),
+
+        inset -4px -4px 7px
+        rgba(255,255,255,.2);
+}
+
+.crater1 {
+    width: 35px;
+    height: 35px;
+
+    left: 38px;
+    top: 55px;
+}
+
+.crater2 {
+    width: 20px;
+    height: 20px;
+
+    left: 115px;
+    top: 35px;
+}
+
+.crater3 {
+    width: 48px;
+    height: 48px;
+
+    left: 115px;
+    top: 110px;
+}
+
+.crater4 {
+    width: 25px;
+    height: 25px;
+
+    left: 55px;
+    top: 135px;
+}
+
+.crater5 {
+    width: 15px;
+    height: 15px;
+
+    left: 150px;
+    top: 75px;
+}
+
+.crater6 {
+    width: 13px;
+    height: 13px;
+
+    left: 78px;
+    top: 28px;
+}
+
+.crater7 {
+    width: 18px;
+    height: 18px;
+
+    left: 30px;
+    top: 115px;
+}
+
+@keyframes moonFloat {
+
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-2deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(2deg);
+    }
+}
+
+.moon-ring {
+    position: absolute;
+
+    inset: -12px;
+
+    border:
+        1px solid
+        rgba(255,183,220,.4);
+
+    border-radius: 50%;
+
+    animation:
+        moonRing 12s linear infinite;
+}
+
+@keyframes moonRing {
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
+   ГОЛОВНИЙ ТЕКСТ
+===================================================== */
+
+.hero-name {
+    font-size:
+        clamp(70px, 13vw, 140px);
+
+    line-height: .85;
+
+    margin-bottom: 35px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff,
+            #ffb6dc,
+            #e4baff,
+            #fff
+        );
+
+    background-size: 300%;
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation:
+        gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+
+    0%,100% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+}
+
+.hero-subtitle {
+    color: #e9d7e7;
+
+    font-size: 19px;
+
+    max-width: 600px;
+
+    margin: auto;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   КНОПКИ
+===================================================== */
+
+.button {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding:
+        15px 32px;
+
+    border-radius: 50px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,111,181,.3),
+            rgba(180,120,255,.3)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    cursor: pointer;
+
+    transition: .35s;
+}
+
+.button:hover {
+    transform:
+        translateY(-6px)
+        scale(1.03);
+
+    box-shadow:
+        0 15px 45px
+        rgba(255,104,183,.25);
+}
+
+
+/* =====================================================
+   МУЗИКА 🎵
+===================================================== */
+
+.music-section {
+    min-height: auto;
+
+    padding-top: 40px;
+    padding-bottom: 120px;
+}
+
+.music-card {
+    width: min(700px, 100%);
+
+    margin: auto;
+
+    padding: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,130,190,.12),
+            rgba(177,126,255,.10)
+        );
+
+    border:
+        1px solid
+        rgba(255,190,225,.2);
+
+    backdrop-filter:
+        blur(18px);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.2);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.music-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: #ff76b7;
+
+    filter: blur(80px);
+
+    opacity: .12;
+
+    right: -100px;
+    top: -100px;
+}
+
+.music-cover {
+    min-width: 100px;
+    height: 100px;
+
+    border-radius: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff80bb,
+            #a879f3
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(255,100,180,.25);
+
+    position: relative;
+}
+
+.music-cover.playing {
+    animation:
+        musicPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.music-info {
+    flex: 1;
+
+    position: relative;
+    z-index: 2;
+}
+
+.music-label {
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 3px;
+
+    color: #ffabd5;
+
+    margin-bottom: 7px;
+}
+
+.music-title {
+    font-size: 24px;
+
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.music-artist {
+    color: #bfa9bb;
+
+    font-size: 14px;
+}
+
+.music-controls {
+    margin-top: 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.music-button {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff78b9,
+            #b178ee
+        );
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,105,181,.25);
+
+    transition: .3s;
+}
+
+.music-button:hover {
+    transform:
+        scale(1.1);
+}
+
+.music-progress {
+    flex: 1;
+
+    height: 5px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,.1);
+
+    overflow: hidden;
+}
+
+.music-progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff78b9,
+            #d29cff
+        );
+}
+
+.music-time {
+    font-size: 11px;
+
+    color: #a991a6;
+
+    min-width: 75px;
+
+    text-align: right;
+}
+
+@media(max-width:600px) {
+
+    .music-card {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .music-controls {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   ЛІЧИЛЬНИК
+===================================================== */
+
+.counter-wrapper {
+    position: relative;
+
+    max-width: 850px;
+
+    margin: auto;
+}
+
+.counter-box {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 15px;
+}
+
+.counter-item {
+    padding: 30px 10px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.065);
+
+    border:
+        1px solid
+        rgba(255,193,225,.16);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition: .3s;
+}
+
+.counter-item:hover {
+    transform:
+        translateY(-7px);
+
+    background:
+        rgba(255,255,255,.1);
+}
+
+.counter-number {
+    font-size: 42px;
+
+    font-weight: 700;
+
+    color: #ffc3e2;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,127,190,.5);
+}
+
+.counter-label {
+    color: #bda9bc;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    margin-top: 8px;
+}
+
+.counter-note {
+    text-align: center;
+
+    color: #a991a7;
+
+    margin-top: 25px;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   ФОТО
+===================================================== */
+
+.gallery {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.photo {
+    position: relative;
+
+    height: 390px;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #291628;
+
+    border:
+        1px solid
+        rgba(255,190,220,.18);
+
+    transition:
+        .45s;
+
+    box-shadow:
+        0 15px 50px
+        rgba(0,0,0,.25);
+}
+
+.photo:nth-child(2) {
+    transform:
+        translateY(35px);
+}
+
+.photo:nth-child(5) {
+    transform:
+        translateY(35px);
+}
+
+.photo:hover {
+    transform:
+        translateY(-10px)
+        rotate(1deg)
+        scale(1.02);
+}
+
+.photo:nth-child(2):hover,
+.photo:nth-child(5):hover {
+    transform:
+        translateY(20px)
+        rotate(1deg)
+        scale(1.02);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        .7s;
+}
+
+.photo:hover img {
+    transform:
+        scale(1.08);
+}
+
+.photo::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 55%,
+            rgba(28,10,25,.9)
+        );
+}
+
+.photo-caption {
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    padding: 25px;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   КАРТКИ
+===================================================== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+}
+
+.card {
+    padding: 35px 28px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,.055);
+
+    border:
+        1px solid
+        rgba(255,190,220,.14);
+
+    backdrop-filter:
+        blur(15px);
+
+    transition:
+        .4s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    background:
+        #ff72b5;
+
+    border-radius: 50%;
+
+    filter: blur(50px);
+
+    opacity: .15;
+
+    right: -40px;
+    top: -40px;
+}
+
+.card:hover {
+    transform:
+        translateY(-9px);
+
+    border-color:
+        rgba(255,180,220,.35);
+}
+
+.card-icon {
+    font-size: 35px;
+
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+
+    font-size: 22px;
+}
+
+.card p {
+    color: #c9b8c8;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ВИПАДКОВІ ПОВІДОМЛЕННЯ
+===================================================== */
+
+.random-area {
+    max-width: 650px;
+
+    margin:
+        60px auto 0;
+
+    text-align: center;
+}
+
+.random-message {
+    min-height: 90px;
+
+    padding: 28px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,190,220,.15);
+
+    color: #ead9e6;
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   КОНВЕРТ
+===================================================== */
+
+.envelope {
+    position: relative;
+
+    width: 290px;
+    height: 200px;
+
+    margin:
+        70px auto 40px;
+
+    cursor: pointer;
+
+    transition: .4s;
+}
+
+.envelope:hover {
+    transform:
+        translateY(-8px);
+}
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff77b7,
+            #a96df1
+        );
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.35);
+}
+
+.envelope-paper {
+    position: absolute;
+
+    left: 25px;
+    bottom: 10px;
+
+    width: 240px;
+    height: 165px;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+    background:
+        #fff8fc;
+
+    color: #392a38;
+
+    z-index: 1;
+
+    transition: .8s;
+}
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left:
+        145px solid transparent;
+
+    border-right:
+        145px solid transparent;
+
+    border-top:
+        105px solid #ff91c5;
+
+    z-index: 3;
+
+    transform-origin: top;
+
+    transition: .8s;
+}
+
+.envelope-heart {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    z-index: 5;
+
+    font-size: 38px;
+
+    transition: .4s;
+}
+
+.envelope.open
+.envelope-flap {
+    transform:
+        rotateX(180deg);
+}
+
+.envelope.open
+.envelope-paper {
+    transform:
+        translateY(-110px);
+
+    z-index: 6;
+}
+
+.envelope.open
+.envelope-heart {
+    opacity: 0;
+}
+
+.letter {
+    display: none;
+
+    max-width: 650px;
+
+    margin: 80px auto 0;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,190,220,.15);
+
+    color: #dfcedc;
+
+    line-height: 1.9;
+
+    text-align: center;
+
+    animation:
+        appear .7s ease;
+}
+
+.letter.show {
+    display: block;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+   СЕКРЕТ
+===================================================== */
+
+.secret {
+    text-align: center;
+}
+
+.secret-button {
+    padding:
+        18px 28px;
+
+    border-radius: 50px;
+
+    color: #fff;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,190,220,.2);
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.secret-button:hover {
+    background:
+        rgba(255,255,255,.12);
+
+    transform:
+        scale(1.05);
+}
+
+.secret-message {
+    display: none;
+
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color: #e4d1df;
+
+    line-height: 1.8;
+}
+
+.secret-message.show {
+    display: block;
+
+    animation:
+        appear .6s ease;
+}
+
+
+/* =====================================================
+   ФІНАЛ
+===================================================== */
+
+.final {
+    text-align: center;
+}
+
+.final-symbol {
+    font-size: 85px;
+
+    cursor: pointer;
+
+    animation:
+        heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%,100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.12);
+    }
+}
+
+.final-text {
+    max-width: 650px;
+
+    margin: 30px auto;
+
+    color: #d8c4d5;
+
+    line-height: 1.8;
+}
+
+
+/* =====================================================
+   ФУТЕР
+===================================================== */
+
+footer {
+    padding: 35px;
+
+    text-align: center;
+
+    color: #8e7489;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(20,5,17,.94);
+
+    cursor: pointer;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 95%;
+
+    max-height: 90vh;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 100px
+        rgba(255,120,190,.35);
+}
+
+
+/* =====================================================
+   МОБІЛЬНА ВЕРСІЯ
+===================================================== */
+
+@media(max-width:750px) {
+
+    section {
+        padding:
+            80px 15px;
+    }
+
+    .moon {
+        width: 160px;
+        height: 160px;
+    }
+
+    .counter-box {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .photo {
+        height: 430px;
+
+        transform: none !important;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-name {
+        font-size: 75px;
+    }
+
+    .envelope {
+        transform:
+            scale(.85);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ФОНОВІ БЛОБИ
+===================================================== -->
+
+<div class="background-blur">
+
+    <div class="blob blob1"></div>
+
+    <div class="blob blob2"></div>
+
+    <div class="blob blob3"></div>
+
+</div>
+
+
+<!-- =====================================================
+     ЛЕТЮЧІ ЕЛЕМЕНТИ
+===================================================== -->
+
+<div
+    class="floating"
+    id="floating"
+></div>
+
+
+<!-- ПРОГРЕС -->
+
+<div
+    class="progress"
+    id="progress"
+></div>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section id="home">
+
+<div class="container">
+
+
+    <div class="moon">
+
+        <div class="moon-ring"></div>
+
+        <div class="crater crater1"></div>
+        <div class="crater crater2"></div>
+        <div class="crater crater3"></div>
+        <div class="crater crater4"></div>
+        <div class="crater crater5"></div>
+        <div class="crater crater6"></div>
+        <div class="crater crater7"></div>
+
+    </div>
+
+
+    <div class="small-title">
+        ✦ странічка для особливої мені людини ✦
+    </div>
+
+
+    <h1 class="hero-name">
+        МІІІІІІЯ
+    </h1>
+
+
+    <p class="hero-subtitle">
+
+        Тут нема ніц серйозного
+
+        <br>
+
+        Просто пару фотографій,
+        чуть-чуть магії
+        і багато маленьких деталей ♡
+
+    </p>
+
+
+    <a
+        href="#music"
+        class="button"
+    >
+        Почати ↓
+    </a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     МУЗИКА 🎵
+===================================================== -->
+
+<section
+    id="music"
+    class="music-section"
+>
+
+<div class="container">
+
+    <div class="small-title">
+        🎵 soundtrack
+    </div>
+
+
+    <h2>
+        Пісня яка "в моменті" твоя любімая
+    </h2>
+
+
+    <p class="description">
+
+        Нажми ▶ і сайт
+        заграє трішки гарніше
+
+    </p>
+
+
+    <div class="music-card">
+
+
+        <div
+            class="music-cover"
+            id="musicCover"
+        >
+
+            🎀
+
+        </div>
+
+
+        <div class="music-info">
+
+
+            <div class="music-label">
+                now playing
+            </div>
+
+
+            <!-- =================================================
+                 TODO: НАЗВА ПІСНІ
+            ================================================= -->
+
+            <div class="music-title">
+                When I'm Small♡
+            </div>
+
+
+            <!-- =================================================
+                 TODO: ВИКОНАВЕЦЬ
+            ================================================= -->
+
+            <div class="music-artist">
+                Phantogram
+            </div>
+
+
+            <div class="music-controls">
+
+
+                <button
+                    class="music-button"
+                    id="musicButton"
+                >
+                    ▶
+                </button>
+
+
+                <div class="music-progress">
+
+                    <div
+                        class="music-progress-bar"
+                        id="musicProgress"
+                    ></div>
+
+                </div>
+
+
+                <div
+                    class="music-time"
+                    id="musicTime"
+                >
+                    0:00 / 4:09
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         ВАЖЛИВО:
+
+         Поклади свою пісню в ту саму папку,
+         де знаходиться index.html.
+
+         Назви файл:
+
+         music.mp3
+
+         Якщо назва інша — зміни src нижче.
+    ================================================= -->
+
+    <audio
+        id="audio"
+        src="Phantogram - When I'm Small (SPOTISAVER).mp3"
+    ></audio>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ЛІЧИЛЬНИК
+===================================================== -->
+
+<section id="time">
+
+<div class="container">
+
+    <div class="small-title">
+        ⏱ одна маленька цифра
+    </div>
+
+
+    <h2>
+        300 днів
+    </h2>
+
+
+    <p class="description">
+
+        ...і ще 12 годин.
+
+        <br><br>
+
+        цей час був особливим, поряд з тобою
+
+    </p>
+
+
+    <div class="counter-wrapper">
+
+        <div class="counter-box">
+
+
+            <div class="counter-item">
+
+                <div
+                    class="counter-number"
+                    id="days"
+                >
+                    300
+                </div>
+
+                <div class="counter-label">
+                    днів
+                </div>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <div
+                    class="counter-number"
+                    id="hours"
+                >
+                    12
+                </div>
+
+                <div class="counter-label">
+                    годин
+                </div>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <div
+                    class="counter-number"
+                    id="minutes"
+                >
+                    00
+                </div>
+
+                <div class="counter-label">
+                    хвилин
+                </div>
+
+            </div>
+
+
+            <div class="counter-item">
+
+                <div
+                    class="counter-number"
+                    id="seconds"
+                >
+                    00
+                </div>
+
+                <div class="counter-label">
+                    секунд
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="counter-note">
+
+            + секунди продовжують бігти ♡
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ФОТО
+===================================================== -->
+
+<section id="photos">
+
+<div class="container">
+
+    <div class="small-title">
+        📸 moments
+    </div>
+
+
+    <h2>
+        Найцікавіше!
+    </h2>
+
+
+    <p class="description">
+
+        Фотографії можна відкривати (єслі чо)
+        
+
+    </p>
+
+
+    <div class="gallery">
+
+
+        <div class="photo">
+
+            <!-- TODO: ВСТАВ СВОЄ ФОТО -->
+            <!-- Назви файл photo1.jpg -->
+
+            <img
+                src="випуск.jpg"
+                alt="Солька"
+            >
+
+            <div class="photo-caption">
+
+                ВИПУСКНИЙЙЙЙ
+
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <!-- TODO: photo2.jpg -->
+
+            <img
+                src="ми уже красні.jpg"
+                alt="Соля"
+            >
+
+            <div class="photo-caption">
+
+                ми уже красні
+
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <!-- TODO: photo3.jpg -->
+
+            <img
+                src="язикі.jpg"
+                alt="Мія"
+            >
+
+            <div class="photo-caption">
+
+                гарний момент
+
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <!-- TODO: photo4.jpg -->
+
+            <img
+                src="уснула рано.jpg"
+                alt="Міяша"
+            >
+
+            <div class="photo-caption">
+
+                уснула рано...
+
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <!-- TODO: photo5.jpg -->
+
+            <img
+                src="концерт.jpg"
+                alt="Міанякаваі"
+            >
+
+            <div class="photo-caption">
+
+                концертік ♡
+
+            </div>
+
+        </div>
+
+
+        <div class="photo">
+
+            <!-- TODO: photo6.jpg -->
+
+            <img
+                src="ми.jpg"
+                alt="Мієчка"
+            >
+
+            <div class="photo-caption">
+
+                і це тільки початок.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     МАЛЕНЬКІ ДЕТАЛІ
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+    <div class="small-title">
+        ♡ little things
+    </div>
+
+
+    <h2>
+        Маленькі деталі
+    </h2>
+
+
+    <p class="description">
+
+        Не те щоб привітання... просто ті речі які роблять тебе - тобою (моєю єдиною)
+
+    </p>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🧸
+            </div>
+
+            <h3>
+                Настроєніє
+            </h3>
+
+            <p>
+
+                Срав пес, сісі, да канєшно
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎀
+            </div>
+
+            <h3>
+                Вайбік
+            </h3>
+
+            <p>
+
+                Хот-блондінка, людина яка бачить красу, барига
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🌷
+            </div>
+
+            <h3>
+                Маленький факт
+            </h3>
+
+            <p>
+
+               вайбові фотки ток на фотіку, якшо нє то не вайб 
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🦋
+            </div>
+
+            <h3>
+                Любиме
+            </h3>
+
+            <p>
+
+                Поворот не туда, бути разом, бамбл, перепродажі
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                💿
+            </div>
+
+            <h3>
+                Soundtrack
+            </h3>
+
+            <p>
+
+                Erykah Badu - Didn't Cha Know (нагадує про тебе)
+
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🔮
+            </div>
+
+            <h3>
+                Future
+            </h3>
+
+            <p>
+
+                «Ще...»
+
+                <br><br>
+
+                Заєць
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="random-area">
+
+        <div
+            class="random-message"
+            id="randomMessage"
+        >
+
+            Натисни кнопку.
+            Тут заховано кілька маленьких
+            повідомлень 👀
+
+        </div>
+
+
+        <button
+            class="button"
+            id="randomButton"
+        >
+
+            Відкрити випадкове ✨
+
+        </button>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     КОНВЕРТ
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+    <div class="small-title">
+        💌 secret
+    </div>
+
+
+    <h2>
+        Тут закладка
+    </h2>
+
+
+    <p class="description">
+
+        не баісь, ніц страшного
+
+        <br>
+
+        можеш відкрити
+
+    </p>
+
+
+    <div
+        class="envelope"
+        id="envelope"
+    >
+
+        <div class="envelope-back"></div>
+
+
+        <div class="envelope-paper">
+
+            <b>
+                для моєї ненаглядної
+            </b>
+
+            <br><br>
+
+            ↓
+
+        </div>
+
+
+        <div class="envelope-flap"></div>
+
+
+        <div class="envelope-heart">
+            ♡
+        </div>
+
+    </div>
+
+
+    <div
+        class="letter"
+        id="letter"
+    >
+
+        Тут міг би бути
+        величезний текст на кілька сторінок,
+
+        <br><br>
+
+        Але те що показує на сайті, не є самим важливим ♡
+
+        <br><br>
+
+        <b>
+            Кіць, ти дуже особлива, ти одна на весь всесвіт.
+        </b>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     СЕКРЕТ
+===================================================== -->
+
+<section>
+
+<div class="container">
+
+    <div class="secret">
+
+        <div class="small-title">
+            🤫 don't tell anyone
+        </div>
+
+
+        <h2>
+            Ти точно все знайшла?
+        </h2>
+
+
+        <p class="description">
+
+            Тут є дещо, що легко пропустити.
+
+        </p>
+
+
+        <button
+            class="secret-button"
+            id="secretButton"
+        >
+
+            🔐 Перевірити
+
+        </button>
+
+
+        <div
+            class="secret-message"
+            id="secretMessage"
+        >
+
+            АДИ...
+
+            <br><br>
+
+            а ти уважна
+
+            <br><br>
+
+            міяша у нас Майстер+!
+
+            <br><br>
+
+            напевно тут більше нічого немає
+
+            <br>
+
+            ...чи є? 👀
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ФІНАЛ
+===================================================== -->
+
+<section class="final">
+
+<div class="container">
+
+    <div
+        class="final-symbol"
+        id="finalHeart"
+    >
+        ♡
+    </div>
+
+
+    <div class="small-title">
+        the end
+    </div>
+
+
+    <h2>
+        Кохана
+    </h2>
+
+
+    <p class="final-text">
+
+        далі вже без тексту
+
+        <br><br>
+
+        просто скажу, що ти є сенсом мого життя.
+
+        <br><br>
+
+        ♡
+
+    </p>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+    made specially for MIYASHA HULIGANKA 2009 ♡
+
+</footer>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+>
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt=""
+    >
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   СЛІД ЗА КУРСОРОМ ✨
+===================================================== */
+
+let lastCursorTime = 0;
+
+document.addEventListener(
+    "mousemove",
+    function(event) {
+
+        const now = Date.now();
+
+        /*
+           Не створюємо занадто багато
+           сердечок — приблизно 1 раз
+           кожні 45 мс.
+        */
+
+        if (
+            now - lastCursorTime < 45
+        ) {
+            return;
+        }
+
+        lastCursorTime = now;
+
+
+        const heart =
+            document.createElement(
+                "div"
+            );
+
+
+        heart.className =
+            "cursor-heart";
+
+
+        const symbols = [
+            "♡",
+            "♡",
+            "✦",
+            "✧",
+            "⋆"
+        ];
+
+
+        heart.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        heart.style.left =
+            event.clientX + "px";
+
+
+        heart.style.top =
+            event.clientY + "px";
+
+
+        heart.style.setProperty(
+            "--x",
+            (
+                Math.random() * 30 - 15
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--y",
+            (
+                Math.random() * 40 + 15
+            ) + "px"
+        );
+
+
+        heart.style.setProperty(
+            "--rotate",
+            (
+                Math.random() * 90 - 45
+            ) + "deg"
+        );
+
+
+        document.body.appendChild(
+            heart
+        );
+
+
+        setTimeout(
+            () => heart.remove(),
+            800
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ЛЕТЮЧІ ЕЛЕМЕНТИ
+===================================================== */
+
+const floating =
+    document.getElementById(
+        "floating"
+    );
+
+
+const symbols = [
+    "♡",
+    "✦",
+    "✧",
+    "⋆",
+    "🎀",
+    "♡",
+    "✿"
+];
+
+
+for (
+    let i = 0;
+    i < 28;
+    i++
+) {
+
+    const item =
+        document.createElement(
+            "div"
+        );
+
+    item.className =
+        "float-item";
+
+
+    item.textContent =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+
+    item.style.left =
+        Math.random() * 100 + "%";
+
+
+    item.style.fontSize =
+        (
+            10 +
+            Math.random() * 20
+        ) + "px";
+
+
+    item.style.animationDuration =
+        (
+            10 +
+            Math.random() * 15
+        ) + "s";
+
+
+    item.style.animationDelay =
+        (
+            Math.random() * 15
+        ) + "s";
+
+
+    floating.appendChild(
+        item
+    );
+
+}
+
+
+/* =====================================================
+   МУЗИЧНИЙ ПЛЕЄР 🎵
+===================================================== */
+
+const audio =
+    document.getElementById(
+        "audio"
+    );
+
+
+const musicButton =
+    document.getElementById(
+        "musicButton"
+    );
+
+
+const musicCover =
+    document.getElementById(
+        "musicCover"
+    );
+
+
+const musicProgress =
+    document.getElementById(
+        "musicProgress"
+    );
+
+
+const musicTime =
+    document.getElementById(
+        "musicTime"
+    );
+
+
+/*
+   PLAY / PAUSE
+*/
+
+musicButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            audio.paused
+        ) {
+
+            audio.play()
+                .then(
+                    function() {
+
+                        musicButton.textContent =
+                            "❚❚";
+
+                        musicCover.classList.add(
+                            "playing"
+                        );
+
+                    }
+                )
+                .catch(
+                    function() {
+
+                        alert(
+                            "Перевір, чи файл music.mp3 лежить поруч із index.html ♡"
+                        );
+
+                    }
+                );
+
+        } else {
+
+            audio.pause();
+
+            musicButton.textContent =
+                "▶";
+
+            musicCover.classList.remove(
+                "playing"
+            );
+
+        }
+
+    }
+);
+
+
+/*
+   ОНОВЛЕННЯ ПРОГРЕСУ
+*/
+
+audio.addEventListener(
+    "timeupdate",
+    function() {
+
+        if (
+            !audio.duration
+        ) {
+            return;
+        }
+
+
+        const percent =
+            (
+                audio.currentTime /
+                audio.duration
+            ) * 100;
+
+
+        musicProgress.style.width =
+            percent + "%";
+
+
+        musicTime.textContent =
+            formatTime(
+                audio.currentTime
+            )
+            +
+            " / "
+            +
+            formatTime(
+                audio.duration
+            );
+
+    }
+);
+
+
+/*
+   Коли пісня закінчилась
+*/
+
+audio.addEventListener(
+    "ended",
+    function() {
+
+        musicButton.textContent =
+            "▶";
+
+        musicCover.classList.remove(
+            "playing"
+        );
+
+        musicProgress.style.width =
+            "0%";
+
+    }
+);
+
+
+function formatTime(
+    seconds
+) {
+
+    if (
+        isNaN(seconds)
+    ) {
+        return "0:00";
+    }
+
+
+    const minutes =
+        Math.floor(
+            seconds / 60
+        );
+
+
+    const secs =
+        Math.floor(
+            seconds % 60
+        );
+
+
+    return (
+        minutes +
+        ":" +
+        String(secs)
+            .padStart(2,"0")
+    );
+
+}
+
+
+/* =====================================================
+   ЛІЧИЛЬНИК
+
+   300 ДНІВ + 12 ГОДИН
+===================================================== */
+
+const baseTime =
+    (
+        300 * 24 * 60 * 60
+    ) +
+    (
+        12 * 60 * 60
+    );
+
+
+const counterStart =
+    Date.now();
+
+
+function updateCounter() {
+
+    const elapsed =
+        Math.floor(
+            (
+                Date.now()
+                - counterStart
+            ) / 1000
+        );
+
+
+    const total =
+        baseTime + elapsed;
+
+
+    const days =
+        Math.floor(
+            total /
+            (24 * 60 * 60)
+        );
+
+
+    const hours =
+        Math.floor(
+            (
+                total %
+                (24 * 60 * 60)
+            ) /
+            (60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (
+                total %
+                (60 * 60)
+            ) /
+            60
+        );
+
+
+    const seconds =
+        total % 60;
+
+
+    document.getElementById(
+        "days"
+    ).textContent =
+        days;
+
+
+    document.getElementById(
+        "hours"
+    ).textContent =
+        String(hours)
+        .padStart(2,"0");
+
+
+    document.getElementById(
+        "minutes"
+    ).textContent =
+        String(minutes)
+        .padStart(2,"0");
+
+
+    document.getElementById(
+        "seconds"
+    ).textContent =
+        String(seconds)
+        .padStart(2,"0");
+
+}
+
+
+updateCounter();
+
+setInterval(
+    updateCounter,
+    1000
+);
+
+
+/* =====================================================
+   ПРОГРЕС СТОРІНКИ
+===================================================== */
+
+window.addEventListener(
+    "scroll",
+    function() {
+
+        const scroll =
+            window.scrollY;
+
+
+        const height =
+            document.documentElement
+                .scrollHeight
+            - window.innerHeight;
+
+
+        const percent =
+            height > 0
+            ? scroll / height * 100
+            : 0;
+
+
+        document.getElementById(
+            "progress"
+        ).style.width =
+            percent + "%";
+
+    }
+);
+
+
+/* =====================================================
+   LIGHTBOX ФОТО
+===================================================== */
+
+const photos =
+    document.querySelectorAll(
+        ".photo img"
+    );
+
+
+const lightbox =
+    document.getElementById(
+        "lightbox"
+    );
+
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+photos.forEach(
+    photo => {
+
+        photo.addEventListener(
+            "click",
+            () => {
+
+                lightboxImage.src =
+                    photo.src;
+
+                lightbox.classList.add(
+                    "show"
+                );
+
+            }
+        );
+
+    }
+);
+
+
+lightbox.addEventListener(
+    "click",
+    () => {
+
+        lightbox.classList.remove(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   ВИПАДКОВІ ФРАЗИ
+===================================================== */
+
+const messages = [
+
+    "Маленький факт: ти офіційно займаєш занадто багато місця в моїй галереї 😂",
+
+    "Якщо ти зараз посміхнулася — система працює.",
+
+    "Тут мала бути дуже розумна фраза. Але я передумав.",
+
+    "У тебе +100 до чарівності. Джерело: довірся мені.",
+
+    "Ця сторінка виглядала б набагато нудніше без тебе.",
+
+    "Мієчка detected. Сайт активував режим милоти 🎀",
+
+    "Термінове повідомлення: ти класна.",
+
+    "Це просто маленьке нагадування, що ти особлива ♡",
+
+    "Не шукай логіку. Її тут немає. Є тільки вайб.",
+
+    "Обережно: натискання цієї кнопки може викликати посмішку."
+
+];
+
+
+document.getElementById(
+    "randomButton"
+).addEventListener(
+    "click",
+    function() {
+
+        const index =
+            Math.floor(
+                Math.random() *
+                messages.length
+            );
+
+
+        document.getElementById(
+            "randomMessage"
+        ).textContent =
+            messages[index];
+
+    }
+);
+
+
+/* =====================================================
+   КОНВЕРТ
+===================================================== */
+
+const envelope =
+    document.getElementById(
+        "envelope"
+    );
+
+
+const letter =
+    document.getElementById(
+        "letter"
+    );
+
+
+envelope.addEventListener(
+    "click",
+    function() {
+
+        envelope.classList.toggle(
+            "open"
+        );
+
+        letter.classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   СЕКРЕТНА КНОПКА
+===================================================== */
+
+document.getElementById(
+    "secretButton"
+).addEventListener(
+    "click",
+    function() {
+
+        document.getElementById(
+            "secretMessage"
+        ).classList.toggle(
+            "show"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   КЛІК — ЧАСТИНКИ
+===================================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target.closest(
+                "button"
+            ) ||
+            event.target.closest(
+                ".photo"
+            ) ||
+            event.target.closest(
+                ".envelope"
+            )
+        ) {
+
+            for (
+                let i = 0;
+                i < 7;
+                i++
+            ) {
+
+                const particle =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                particle.textContent =
+                    Math.random() > .5
+                    ? "♡"
+                    : "✦";
+
+
+                particle.style.position =
+                    "fixed";
+
+
+                particle.style.left =
+                    event.clientX + "px";
+
+
+                particle.style.top =
+                    event.clientY + "px";
+
+
+                particle.style.pointerEvents =
+                    "none";
+
+
+                particle.style.zIndex =
+                    "999999";
+
+
+                particle.style.color =
+                    "#ff9bcf";
+
+
+                particle.style.fontSize =
+                    (
+                        12 +
+                        Math.random() * 12
+                    ) + "px";
+
+
+                const x =
+                    (
+                        Math.random() -
+                        .5
+                    ) * 100;
+
+
+                const y =
+                    (
+                        Math.random() -
+                        .5
+                    ) * 100;
+
+
+                particle.animate(
+
+                    [
+
+                        {
+                            transform:
+                                "translate(0,0) scale(1)",
+
+                            opacity: 1
+
+                        },
+
+                        {
+                            transform:
+                                `translate(${x}px,${y}px) scale(0)`,
+
+                            opacity: 0
+
+                        }
+
+                    ],
+
+                    {
+                        duration: 700,
+
+                        easing:
+                            "ease-out"
+                    }
+
+                );
+
+
+                document.body.appendChild(
+                    particle
+                );
+
+
+                setTimeout(
+                    () => particle.remove(),
+                    750
+                );
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   ESC — ЗАКРИТИ ФОТО
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            lightbox.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+
